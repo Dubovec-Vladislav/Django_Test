@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление коментария :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+
+<h1>Добавление ответного коментария</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary btn-block">Добавить ответный коментарий</button>
+</form>
+
+{% endblock %}

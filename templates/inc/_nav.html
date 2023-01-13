@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-light">
+
+    <a style="margin-left: 47.5%; margin-top: -3px;" class="navbar-brand" href="{% url 'home' %}">
+        <font size="6">Новостной сайт</font>
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul style="margin-left: 12.5%;" class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Главная</a></li>
+
+            {% if request.user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'add_news' %}">Добавить новость</a></li>
+            {% endif %}
+
+            <span class="navbar-text">
+
+                {% if request.user.is_authenticated %}
+                    Добро пожаловать, {{ user.username }} <a href="{% url 'logout' %}"
+                                                             style="text-decoration: none;">Выход</a>
+                {% else %}
+                    <a href="{% url 'register' %}" style="text-decoration: none;">Регистрация</a> |
+                    <a href="{% url 'login' %}" style="text-decoration: none;">Вход</a>
+                {% endif %}
+
+            </span>
+
+        </ul>
+
+    </div>
+
+</nav>

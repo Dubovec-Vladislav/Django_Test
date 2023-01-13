@@ -1,0 +1,80 @@
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Lora);
+body {margin:0;}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.topmenu > li {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+.topmenu > li:last-child {
+  margin-right: 0;
+}
+.al {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  outline: none;
+  font-family: 'Lora', serif;
+  transition: .5s linear;
+}
+.fa {
+  font-family: "FontAwesome";
+  color: inherit;
+  padding-left: 228px;
+}
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+.three ul {
+  background: #E4EFD1;
+}
+.three ul a {
+  color: #74924C;
+}
+.three .submenu {
+  visibility: hidden;
+  opacity: 0;
+  background: #BAD78B;
+}
+.three ul li:hover .submenu {
+  visibility: visible;
+  opacity: 1;
+}
+.submenu li a {
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  color: white;
+}
+
+</style>
+
+<nav class="three">
+    <ul class="topmenu">
+        <li class="al"><a>About<i class="fa fa-angle-down"></i></a>
+            <ul class="submenu">
+                <div class="list-group">
+                    {% for item in categories %}
+
+                    <a href="{{ item.get_absolute_url }}" class="list-group-item list-group-item-action">
+                        {{ item.title }}
+                        <div class="badge bg-info" style="float: right;">{{ item.cnt }}</div>
+                    </a>
+
+                    {% endfor %}
+                </div>
+            </ul>
+        </li>
+    </ul>
+</nav>
