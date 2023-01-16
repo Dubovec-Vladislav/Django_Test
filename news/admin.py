@@ -48,7 +48,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "comment", "created_at", "post")
+    list_display = ("id", "name", "comment", "created_at", "news")
     list_display_links = ("id", "name")
     fields = ("name", "comment", "created_at", "news", "likes")
     readonly_fields = ("created_at",)
