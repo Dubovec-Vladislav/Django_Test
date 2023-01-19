@@ -160,7 +160,7 @@
                                                                                             action="{% url 'like_reply_comments' news_item.pk %}"
                                                                                             method="POST">{%csrf_token%}
                                                                                         <button type="submit"
-                                                                                                name="comment_id"
+                                                                                                name="reply_comment.id"
                                                                                                 value="{{ reply_comment.id }}"
                                                                                                 class="btn btn-primary btn-sm fa fa-thumbs-up"
                                                                                                 aria-hidden="true">

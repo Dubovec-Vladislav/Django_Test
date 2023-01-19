@@ -10,8 +10,7 @@ from .models import News, Category, Comment, ReplyComment
 from .forms import NewsForm, RegisterUserForm, LoginUserForm, CommentForm, ReplyCommentForm
 from .utils import MyMixin
 
-from django.contrib.auth.views import LoginView
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LoginView, LogoutView
 
 
 # from django.core.mail import send_mail
@@ -102,7 +101,7 @@ def CommentLikeView(request, pk):
 
 def ReplyCommentLikeView(request, pk):
     if request.user.is_authenticated:
-        comment = get_object_or_404(ReplyComment, id=request.POST.get('comment_id'))
+        comment = get_object_or_404(ReplyComment, id=request.POST.get('reply_comment.id'))
         comment.likes.add(request.user)
         return redirect('detail_news', pk)
     else:
